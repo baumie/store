@@ -9,20 +9,27 @@
 					<MDBNavbarItem to="#"> Features </MDBNavbarItem>
 					<MDBNavbarItem to="#"> Pricing </MDBNavbarItem>
 					<MDBNavbarItem to="#"> About </MDBNavbarItem>
+					<MDBNavbarItem
+						href="https://www.instagram.com/tati.bragagnolo/"
+						style=""
+					>
+						<img
+							alt="Instagram"
+							src="../assets/insta.png"
+							style="height: 20px"
+					/></MDBNavbarItem>
 				</MDBNavbarNav>
 			</MDBNavbar>
 			<!-- Navbar -->
 			<!-- Jumbotron -->
 			<div class="p-5 text-center bg-light">
-				<h1 class="mb-3">Store Items</h1>
-				<h4 class="mb-3">Subheading</h4>
-				<a class="btn btn-primary" href="" role="button"
-					>Call to action</a
-				>
+				<h1 class="mb-3">Tati's Workouts</h1>
+				<h4 class="mb-3">Don't wait until tomorrow...</h4>
+				<a class="btn btn-primary" href="" role="button">Do It Now</a>
 			</div>
 			<!-- Jumbotron -->
 		</header>
-		<div v-if="storeitems.length">
+		<div v-if="!!storeitems">
 			<MDBRow :cols="['1', 'md-4']" class="g-4">
 				<div
 					v-bind:key="storeitem.index"
@@ -31,14 +38,14 @@
 					<MDBCol>
 						<MDBCard>
 							<MDBCardImg
-								:src="`http://localhost:1337/uploads/0b1adfbf_8b54_487c_bbac_dc0c1425eb0e_ccf872b4b1.JPG`"
+								:src="`${storeitem.attributes.image}`"
 							/>
 							<MDBCardBody>
 								<MDBCardTitle>{{
-									storeitem.title
+									storeitem.attributes.title
 								}}</MDBCardTitle>
 								<MDBCardText>
-									{{ storeitem.description }}
+									{{ storeitem.attributes.description }}
 								</MDBCardText>
 							</MDBCardBody>
 						</MDBCard>
@@ -81,14 +88,14 @@ export default {
 	data() {
 		return {
 			storeitems: [],
-			imageLink: "http://localhost:1337/storeitems/",
+			imageLink: "http://localhost:1337/api/storeitems/",
 		};
 	},
 	mounted() {
-		fetch("http://localhost:1337/storeitems")
+		fetch("http://localhost:1337/api/storeitems")
 			.then((res) => res.json())
 			.then((data) => {
-				this.storeitems = data;
+				this.storeitems = data.data;
 			});
 	},
 };
