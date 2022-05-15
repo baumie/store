@@ -11,7 +11,6 @@
 					<MDBNavbarItem to="#"> About </MDBNavbarItem>
 					<MDBNavbarItem
 						href="https://www.instagram.com/tati.bragagnolo/"
-						style=""
 					>
 						<img
 							alt="Instagram"

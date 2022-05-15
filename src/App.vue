@@ -1,5 +1,5 @@
 <template>
-  <img alt="Tati logo" src="./assets/tati.png" />
+  <img alt="Tati logo" src="./assets/tati.png" style="width: 100%" />
   <HelloWorld msg="Welcome to Tati's World!" />
 </template>
 
